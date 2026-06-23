@@ -1,0 +1,29 @@
+name: Endor scan - to test maven wrapper
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to trigger the workflow
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Endor Labs SCA Security
+        uses: endorlabs/github-action@main
+        env: 
+          ENDOR_MVN_USE_WRAPPER: true
+        with:
+          namespace: tej-learn
+          api: "https://api.endorlabs.com"
+          enable_github_action_token: true
+          scan_dependencies: true
+          output_file: endor_scan.json
