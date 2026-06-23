@@ -28,3 +28,5 @@ jobs:
           scan_dependencies: true
           output_file: endor_scan.json
           scan_path: .
+          log_level: debug
+          log_verbose: true
