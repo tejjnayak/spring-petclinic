@@ -27,3 +27,4 @@ jobs:
           enable_github_action_token: true
           scan_dependencies: true
           output_file: endor_scan.json
+          scan_path: .
