@@ -17,6 +17,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Check Maven wrapper
+        run: |
+              pwd
+              ls -la
+              ls -la mvnw .mvn/wrapper/maven-wrapper.properties
+              chmod +x mvnw
+              ./mvnw -v
+               
       - name: Endor Labs SCA Security
         uses: endorlabs/github-action@main
         env: 
